@@ -671,7 +671,10 @@ var YAAW = (function() {
           }
         });
         if (gids.length) ARIA2.unpause(gids);
-        if (stopped_gids.length) ARIA2.restart_task(stopped_gids);
+        if (stopped_gids.length) {
+          ARIA2.restart_task(stopped_gids);
+          ARIA2.remove_result(stopped_gids);
+        }
       },
 
       remove: function() {
